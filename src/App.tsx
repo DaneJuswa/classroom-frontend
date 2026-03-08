@@ -11,12 +11,13 @@ import "./App.css";
 import { Toaster } from "./components/refine-ui/notification/toaster";
 import { useNotificationProvider } from "./components/refine-ui/notification/use-notification-provider";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
-import { dataProvider } from "./providers/data";
+import { dataProvider } from "./providers/data.ts";
 import Dashboard from "@/pages/dashboard.tsx";
-import {BookOpen, Home} from "lucide-react";
+import {BookOpen, Home, UsersIcon} from "lucide-react";
 import {Layout} from "@/components/refine-ui/layout/layout.tsx";
 import Subjects from "@/pages/subjects/Subjects.tsx";
 import SubjectsCreate from "@/pages/subjects/SubjectsCreate.tsx";
+import Users from "@/pages/Users.tsx";
 
 function App() {
   return (
@@ -43,21 +44,22 @@ function App() {
                       list:"/subjects",
                       create:"/subjects/create",
                       meta: {label: "Subjects", icon: <BookOpen/>}
+                  },{
+                    name:"users",
+                      list:"/users",
+                      meta:{label: "Users", icon: <UsersIcon/>}
                   }
 
               ]}
             >
               <Routes>
-                  <Route element={
-                      <Layout>
-                          <Outlet/>
-                      </Layout>
-                  }>
+                  <Route element={<Layout><Outlet/></Layout>}>
                       <Route path="/" element={<Dashboard/>}/>
                       <Route path="subjects">
                           <Route index element={<Subjects/>}/>
                           <Route path="create" element={<SubjectsCreate/>}/>
                       </Route>
+                      <Route path="users" element={<Users/>} />
                   </Route>
 
               </Routes>
