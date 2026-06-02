@@ -1,4 +1,4 @@
-import  {Subject} from "@/types";
+import  {Subject} from "@/types/Subject.ts";
 
 export const MOCK_SUBJECTS: Subject[] = [
     // University 1

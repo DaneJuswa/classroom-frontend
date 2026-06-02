@@ -19,6 +19,9 @@ import Subjects from "@/pages/subjects/Subjects.tsx";
 import SubjectsCreate from "@/pages/subjects/SubjectsCreate.tsx";
 import Users from "@/pages/Users.tsx";
 
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -36,7 +39,7 @@ function App() {
               }}
               resources={[
                   {
-                      name: "dashboard",
+                      name:"home",
                       list: "/",
                       meta: { label: "Home", icon: <Home />  },
                   },{
@@ -47,6 +50,7 @@ function App() {
                   },{
                     name:"users",
                       list:"/users",
+                      create:"/users/create",
                       meta:{label: "Users", icon: <UsersIcon/>}
                   }
 
